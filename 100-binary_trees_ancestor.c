@@ -53,7 +53,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		if (path_1[i] != path_2[j])
 			break;
 	}
-	if (i < 0 || j < 0)
+	if (i < 0)
 		return (NULL);
 	i++;
 
