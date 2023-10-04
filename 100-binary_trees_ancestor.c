@@ -49,7 +49,12 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 			break;
 	}
 	if (i < 0)
-		return (NULL);
+	{
+		if (first->n == second->n)
+			return ((binary_tree_t *)first->parent);
+		else
+			return (NULL);
+	}
 	i++;
 
 	ptr = (binary_tree_t *)first;
