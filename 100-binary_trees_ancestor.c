@@ -40,6 +40,11 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	if (first == second)
 		return ((binary_tree_t *)first);
 
+	if (first->parent == second)
+		return ((binary_tree_t *)second);
+	else if (second->parent == first)
+		return ((binary_tree_t *)first);
+
 	i = get_path(first, path_1);
 	j = get_path(second, path_2);
 
@@ -48,13 +53,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		if (path_1[i] != path_2[j])
 			break;
 	}
-	if (i < 0)
-	{
-		if (first->n == second->n)
-			return ((binary_tree_t *)first->parent);
-		else
-			return (NULL);
-	}
+	if (i < 0 || j < 0)
+		return (NULL);
 	i++;
 
 	ptr = (binary_tree_t *)first;
