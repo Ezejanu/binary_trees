@@ -38,7 +38,8 @@ int node_count(const binary_tree_t *tree)
  */
 int exponential_two(int exponent)
 {
-	int result, i;
+	int i;
+	int result = 1;
 
 	for (i = 0; i < exponent; ++i)
 		result *= 2;
